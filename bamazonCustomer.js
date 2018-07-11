@@ -57,7 +57,6 @@ function askQuestion() {
             }
         }
     ]).then(function (response) {
-        console.log(response.buyId + " | " + response.buyAmount);
         id = response.buyId;
         amount_to_buy = response.buyAmount;
         if (response_overall[id - 1].stock_quantity >= amount_to_buy) {
@@ -65,18 +64,16 @@ function askQuestion() {
                 response_overall[id - 1].stock_quantity - amount_to_buy, id
             ], function (error, response) {
                 if (error) throw error;
-                console.log("Your purchase cost is: $" + response_overall[id - 1].price)
+                console.log("Your purchase cost is: $" + (response_overall[id - 1].price) * amount_to_buy)
             })
         } else {
             console.log("Insufficient quantity!");
         }
+        connection.end();
     })
 }
 
 
-// 7. Once the customer has placed the order, your application should check if your store has enough of the product to meet the customer's request.
-
-//    * If not, the app should log a phrase like `Insufficient quantity!`, and then prevent the order from going through.
 
 // 8. However, if your store _does_ have enough of the product, you should fulfill the customer's order.
 //    * This means updating the SQL database to reflect the remaining quantity.
