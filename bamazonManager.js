@@ -19,19 +19,6 @@ connection.connect(function (err) {
     showMenu();
 })
 
-function beginShopping() {
-    connection.query("SELECT * FROM products", function (error, response) {
-        if (error) throw error;
-        response_overall = response;
-        for (var i = 0; i < response_overall.length; i++) {
-            console.log("Item Id: " + response_overall[i].item_id + " | Product Name: " + response_overall[i].product_name
-                + " | Department: " + response_overall[i].department_name
-                + " | Price: $" + response_overall[i].price)
-        }
-        askQuestion();
-    })
-}
-
 function showMenu() {
     inquirer.prompt([
         {
