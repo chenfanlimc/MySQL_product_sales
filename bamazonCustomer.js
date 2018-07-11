@@ -64,7 +64,7 @@ function askQuestion() {
                 response_overall[id - 1].stock_quantity - amount_to_buy, id
             ], function (error, response) {
                 if (error) throw error;
-                console.log("Your purchase cost is: $" + (response_overall[id - 1].price) * amount_to_buy)
+                console.log("Your purchase cost is: $" + ((response_overall[id - 1].price) * amount_to_buy).toFixed(2))
             })
         } else {
             console.log("Insufficient quantity!");
