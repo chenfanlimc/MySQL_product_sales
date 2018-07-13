@@ -17,4 +17,4 @@ Start the files in terminal/gitbash by typing:
 **node bamazonCustomer.js**
 **node bamazonManager.js**
 
-![Image of ]()
+![Image of Customer Bamazon](/screenshots/bamazonCustomerjs1.jpg)
